@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
 import { NgFor } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { PersonaService } from '../persona.service';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lista-personas',
@@ -13,30 +16,15 @@ export class ListaPersonasComponent implements OnInit{
 
   personas:Persona[];
 
-  constructor(){}
+  constructor(private personaServicio:PersonaService){}
 
   ngOnInit(): void {
-    this.personas=[{
-      "id_persona":1,
-      "nombre":"Alda",
-      "primer_apellido":"Cruz",
-      "segundo_apellido":"Mateo",
-      "telefono":"4425975988",
-      "estatus":"1",
-      "fecha_ins":new Date("2022-01-28"),
-      "fecha_upd":new Date("2022-01-28")
-    },
-    {
-      "id_persona":2,
-      "nombre":"Alda",
-      "primer_apellido":"Cruz",
-      "segundo_apellido":"Mateo",
-      "telefono":"4425975988",
-      "estatus":"1",
-      "fecha_ins":new Date("2022-01-28"),
-      "fecha_upd":new Date("2022-01-28")
-    }
-  ];
+    this.obtenerPersonas();
   }
 
+  private obtenerPersonas(){
+    this.personaServicio.obtenerListaDePersonas().subscribe(dato=>{
+      this.personas = dato;
+    });
+  }
 }
