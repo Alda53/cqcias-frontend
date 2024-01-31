@@ -1,0 +1,17 @@
+<p>Este es el código de la tabla</p>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let persona of personas">
+            <th>{{persona.nombre}}</th>
+            <th>{{persona.telefono}}</th>
+            <th>Poner acciones aqui</th>
+        </tr>
+    </tbody>
+</table>
