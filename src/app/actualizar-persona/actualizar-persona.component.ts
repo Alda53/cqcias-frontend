@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
 import { PersonaService } from '../persona.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { NgIf } from '@angular/common';
 
 @Component({

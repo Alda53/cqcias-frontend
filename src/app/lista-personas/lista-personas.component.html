@@ -1,5 +1,6 @@
+<p></p>
 <button class="btn btn-primary" (click)="openModal()">Registrar persona</button>
-<br>
+<p></p>
 
 <div *ngIf="modalSwitch==true">
     <app-modal-registro></app-modal-registro>
@@ -9,10 +10,8 @@
   <app-modal-detalles></app-modal-detalles>
 </div>
 
-<p></p>
-<p class="text-center">Lista de personas activas</p>
-<table class="table table-striped">
-    <thead class="table-dark">
+<table datatable class="table table-striped">
+    <thead class="thead-dark">
       <tr>
         <th (click)="cambiarCriterioOrden('nombre')">Nombre</th>
         <th (click)="cambiarCriterioOrden('primer_apellido')">Primer apellido</th>

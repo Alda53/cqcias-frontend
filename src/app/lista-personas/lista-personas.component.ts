@@ -6,11 +6,12 @@ import { ModalRegistroComponent } from '../modal-registro/modal-registro.compone
 import { ServiceSwitchService } from '../services/service-switch.service';
 import { Router } from '@angular/router';
 import { ModalDetallesComponent } from '../modal-detalles/modal-detalles.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @Component({
   selector: 'app-lista-personas',
   standalone: true,
-  imports: [NgFor, ModalRegistroComponent, ModalDetallesComponent, NgIf],
+  imports: [NgFor, ModalRegistroComponent, ModalDetallesComponent, NgIf, DataTablesModule],
   templateUrl: './lista-personas.component.html',
   styleUrl: './lista-personas.component.css'
 })

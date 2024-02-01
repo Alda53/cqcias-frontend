@@ -2,22 +2,22 @@
     <div class="container" id="modal_body">
         <div class="col-md-6 offset-md-3">
             <h3 class="text-center">Registrar persona</h3>
-            <form (ngSubmit)="oSend()">
+            <form (ngSubmit)="oSend()" #personaForm="ngForm">
                 <div class="form-group">
                     <label for="">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" [(ngModel)]="persona.nombre" name="nombre">
+                    <input type="text" class="form-control" minlength="4" maxlength="100" id="nombre" [(ngModel)]="persona.nombre" name="nombre">
                 </div>
                 <div class="form-group">
                     <label for="">Primer apellido:</label>
-                    <input type="text" class="form-control" id="primer_apellido" [(ngModel)]="persona.primer_apellido" name="primer_apellido">
+                    <input type="text" class="form-control" minlength="4" maxlength="100" id="primer_apellido" [(ngModel)]="persona.primer_apellido" name="primer_apellido">
                 </div>
                 <div class="form-group">
                     <label for="">Segundo apellido:</label>
-                    <input type="text" class="form-control" id="segundo_apellido" [(ngModel)]="persona.segundo_apellido" name="segundo_apellido">
+                    <input type="text" class="form-control" minlength="4" maxlength="100" id="segundo_apellido" [(ngModel)]="persona.segundo_apellido" name="segundo_apellido">
                 </div>
                 <div class="form-group">
                     <label for="">Telefono:</label>
-                    <input type="text" class="form-control" id="telefono" [(ngModel)]="persona.telefono" name="telefono">
+                    <input type="text" class="form-control" minlength="10" maxlength="10" id="telefono" [(ngModel)]="persona.telefono" name="telefono">
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="estatus" [(ngModel)]="persona.estatus" name="estatus" value=true>
@@ -25,7 +25,8 @@
                 </div>                  
                 <br>
 
-                <button class="btn btn-success">Registrar</button>
+                <a href="/personas" class="btn btn-outline-danger" style="margin-right: 70px;">Cancelar</a>
+                <button class="btn btn-success" [disabled]= "!personaForm.form.valid">Registrar</button>
             </form>
         </div>
     </div>

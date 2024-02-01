@@ -1,3 +1,4 @@
+<p></p>
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Editar persona</h3>
     <form (ngSubmit)= "onSubmit()" #personaForm = "ngForm">
@@ -55,9 +56,10 @@
         >
         <label>Activo</label>
       </div>
-      <p>Nota: Al no ser persona activa, no será listada en la tabla</p>
-  
+      <p style="opacity: .75;">Nota: Al no ser persona activa, no será listada en la tabla</p>
+
+      <a href="/personas" class="btn btn-outline-danger" style="margin-right: 140px;">Cancelar</a>
       <button class="btn btn-success" [disabled]= "!personaForm.form.valid">Guardar</button>
     </form>
-  </div>
+</div>
   

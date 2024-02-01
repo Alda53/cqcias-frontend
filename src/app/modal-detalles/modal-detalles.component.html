@@ -63,10 +63,25 @@
                     disabled
                     >
                     <label>Activo</label>
-                  </div> 
+                  </div>
+                  <div class="form-check">
+                    <label>Fecha de alta: </label>
+                    <p>{{ persona.fecha_ins | date:'dd/MM/yyyy'}}</p>
+                  </div>
+                  <br>
+                  <div class="form-check">
+                    <label>Última modificación: </label>
+                    <p>{{ persona.fecha_upd | date:'dd/MM/yyyy'}}</p>
+                  </div>  
                 <br>
 
-                <a class="btn btn-primary" href="/personas">Aceptar</a>
+                <div class="container">
+                  <div class="row">
+                    <div class="col text-center">
+                      <a class="btn btn-primary" href="/personas">Aceptar</a>
+                    </div>
+                  </div>
+                </div>
             </form>
         </div>
     </div>
