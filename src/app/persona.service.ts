@@ -23,4 +23,14 @@ export class PersonaService {
     return this.httpClient.post(`${this.baseURL}`, persona)
   }
 
+  //Método update
+  actualizarPersona(id:number,persona:Persona): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, persona);
+  }
+
+  //Método obtener por ID
+  obtenerPersonaPorId(id:number):Observable<Persona>{
+    return this.httpClient.get<Persona>(`${this.baseURL}/${id}`);
+  }
+
 }

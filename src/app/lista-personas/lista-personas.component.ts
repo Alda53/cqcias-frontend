@@ -4,6 +4,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { PersonaService } from '../persona.service';
 import { ModalRegistroComponent } from '../modal-registro/modal-registro.component';
 import { ServiceSwitchService } from '../services/service-switch.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-personas',
@@ -18,7 +19,7 @@ export class ListaPersonasComponent implements OnInit{
 
   modalSwitch:boolean;
 
-  constructor(private personaServicio:PersonaService, private modalSS:ServiceSwitchService){}
+  constructor(private personaServicio:PersonaService, private router:Router, private modalSS:ServiceSwitchService){}
 
   criterioOrden: string;
   ordenAscendente = true;
@@ -61,6 +62,13 @@ export class ListaPersonasComponent implements OnInit{
     this.modalSwitch=true;
   }
 
+  //Update persona
+  actualizarPersona(id:number){
+    this.router.navigate(['actualizar-persona', id]);
+
+  }
+
+  //Get personas
   private obtenerPersonas(){
     this.personaServicio.obtenerListaDePersonas().subscribe(dato=>{
       this.personas = dato;

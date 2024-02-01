@@ -5,6 +5,8 @@
     <app-modal-registro></app-modal-registro>
 </div>
 
+<p></p>
+<p class="text-center">Lista de personas activas</p>
 <table class="table table-striped">
     <thead class="table-dark">
       <tr>
@@ -17,11 +19,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let persona of aplicarClasificacion(personas)">
-        <th>{{persona.nombre}}</th>
-        <th>{{persona.primer_apellido}}</th>
-        <th>{{persona.segundo_apellido}}</th>
-        <th>{{persona.telefono}}</th>
-        <th>Poner acciones aquí</th>
+        <td>{{persona.nombre}}</td>
+        <td>{{persona.primer_apellido}}</td>
+        <td>{{persona.segundo_apellido}}</td>
+        <td>{{persona.telefono}}</td>
+        <td>
+          <button (click)="actualizarPersona(persona.id_persona)" class="btn btn-info">Editar</button>
+        </td>
       </tr>
     </tbody>
   </table>

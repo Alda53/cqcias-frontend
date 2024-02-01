@@ -1,0 +1,63 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Editar persona</h3>
+    <form (ngSubmit)= "onSubmit()" #personaForm = "ngForm">
+      <div class="form-group">
+        <label>Nombre : </label>
+        <input type = "text"
+        class="form-control"
+        id = "nombre"
+        [(ngModel)] = "persona.nombre"
+        name = "nombre"
+        required
+        minlength="4"
+        maxlength="100"
+        placeholder="Escriba su nombre "
+        #nombre = "ngModel"
+        >
+      </div>
+  
+      <div class="form-group">
+        <label>Primer apellido : </label>
+        <input type = "text"
+        class="form-control"
+        id = "primer_apellido"
+        [(ngModel)] = "persona.primer_apellido"
+        name = "primer_apellido"
+        required
+        minlength="4"
+        maxlength="100"
+        placeholder="Escriba su apellido "
+        #primer_apellido = "ngModel"
+        >
+      </div>
+      <div class="form-group">
+        <label>Telefono : </label>
+        <input type = "text"
+        class="form-control"
+        id = "telefono"
+        [(ngModel)] = "persona.telefono"
+        name = "telefono"
+        required
+        minlength="10"
+        maxlength="10"
+        placeholder="Escriba su telefono "
+        #telefono = "ngModel"
+        >
+      </div>
+      <div class="form-check">
+        <input type = "checkbox"
+        class="form-check-input"
+        id = "estatus"
+        [(ngModel)] = "persona.estatus"
+        name = "estatus"
+        #estatus = "ngModel"
+        value="1"
+        >
+        <label>Activo</label>
+      </div>
+      <p>Nota: Al no ser persona activa, no será listada en la tabla</p>
+  
+      <button class="btn btn-success" [disabled]= "!personaForm.form.valid">Guardar</button>
+    </form>
+  </div>
+  
