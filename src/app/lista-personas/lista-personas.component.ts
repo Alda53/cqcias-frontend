@@ -5,11 +5,12 @@ import { PersonaService } from '../persona.service';
 import { ModalRegistroComponent } from '../modal-registro/modal-registro.component';
 import { ServiceSwitchService } from '../services/service-switch.service';
 import { Router } from '@angular/router';
+import { ModalDetallesComponent } from '../modal-detalles/modal-detalles.component';
 
 @Component({
   selector: 'app-lista-personas',
   standalone: true,
-  imports: [NgFor, ModalRegistroComponent, NgIf],
+  imports: [NgFor, ModalRegistroComponent, ModalDetallesComponent, NgIf],
   templateUrl: './lista-personas.component.html',
   styleUrl: './lista-personas.component.css'
 })
@@ -18,6 +19,7 @@ export class ListaPersonasComponent implements OnInit{
   personas:Persona[];
 
   modalSwitch:boolean;
+  detallesSwitch:boolean;
 
   constructor(private personaServicio:PersonaService, private router:Router, private modalSS:ServiceSwitchService){}
 
@@ -62,10 +64,14 @@ export class ListaPersonasComponent implements OnInit{
     this.modalSwitch=true;
   }
 
+  detallesModal(id:number){
+    this.detallesSwitch=true;
+    this.modalSS.changeId(id);
+  }
+
   //Update persona
   actualizarPersona(id:number){
     this.router.navigate(['actualizar-persona', id]);
-
   }
 
   //Get personas

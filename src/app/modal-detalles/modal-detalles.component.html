@@ -1,0 +1,73 @@
+<div id="modal">
+    <div class="container" id="modal_body">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Detalles</h3>
+            <form>
+                <div class="form-group">
+                    <label>Nombre : </label>
+                    <input type = "text"
+                    class="form-control"
+                    id = "nombre"
+                    [(ngModel)] = "persona.nombre"
+                    name = "nombre"
+                    placeholder="persona.nombre"
+                    #nombre = "ngModel"
+                    readonly
+                    >
+                  </div>
+              
+                  <div class="form-group">
+                    <label>Primer apellido : </label>
+                    <input type = "text"
+                    class="form-control"
+                    id = "primer_apellido"
+                    [(ngModel)] = "persona.primer_apellido"
+                    name = "primer_apellido"
+                    placeholder="persona.primer_apellido"
+                    #primer_apellido = "ngModel"
+                    readonly
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label>Segundo apellido : </label>
+                    <input type = "text"
+                    class="form-control"
+                    id = "segundo_apellido"
+                    [(ngModel)] = "persona.segundo_apellido"
+                    name = "segundo_apellido"
+                    placeholder="persona.segundo_apellido"
+                    #segundo_apellido = "ngModel"
+                    readonly
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label>Telefono : </label>
+                    <input type = "text"
+                    class="form-control"
+                    id = "telefono"
+                    [(ngModel)] = "persona.telefono"
+                    name = "telefono"
+                    placeholder="persona.telefono"
+                    #telefono = "ngModel"
+                    readonly
+                    >
+                  </div>
+                  <div class="form-check">
+                    <input type = "checkbox"
+                    class="form-check-input"
+                    id = "estatus"
+                    [(ngModel)] = "persona.estatus"
+                    name = "estatus"
+                    #estatus = "ngModel"
+                    value="1"
+                    disabled
+                    >
+                    <label>Activo</label>
+                  </div> 
+                <br>
+
+                <a class="btn btn-primary" href="/personas">Aceptar</a>
+            </form>
+        </div>
+    </div>
+</div>

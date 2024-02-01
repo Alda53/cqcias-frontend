@@ -5,6 +5,10 @@
     <app-modal-registro></app-modal-registro>
 </div>
 
+<div *ngIf="detallesSwitch==true">
+  <app-modal-detalles></app-modal-detalles>
+</div>
+
 <p></p>
 <p class="text-center">Lista de personas activas</p>
 <table class="table table-striped">
@@ -25,6 +29,7 @@
         <td>{{persona.telefono}}</td>
         <td>
           <button (click)="actualizarPersona(persona.id_persona)" class="btn btn-info">Editar</button>
+          <button type="button" class="btn btn-link" (click)="detallesModal(persona.id_persona)">Detalles</button>
         </td>
       </tr>
     </tbody>
