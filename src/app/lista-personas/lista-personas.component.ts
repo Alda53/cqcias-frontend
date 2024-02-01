@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from '../persona';
-import { NgFor } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { NgFor, NgIf } from '@angular/common';
 import { PersonaService } from '../persona.service';
-import { BrowserModule } from '@angular/platform-browser';
+import { ModalRegistroComponent } from '../modal-registro/modal-registro.component';
+import { ServiceSwitchService } from '../services/service-switch.service';
 
 @Component({
   selector: 'app-lista-personas',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, ModalRegistroComponent, NgIf],
   templateUrl: './lista-personas.component.html',
   styleUrl: './lista-personas.component.css'
 })
@@ -16,10 +16,17 @@ export class ListaPersonasComponent implements OnInit{
 
   personas:Persona[];
 
-  constructor(private personaServicio:PersonaService){}
+  modalSwitch:boolean;
+
+  constructor(private personaServicio:PersonaService, private modalSS:ServiceSwitchService){}
 
   ngOnInit(): void {
     this.obtenerPersonas();
+    this.modalSS.$modal.subscribe((value)=>{this.modalSwitch=value})
+  }
+
+  openModal(){
+    this.modalSwitch=true;
   }
 
   private obtenerPersonas(){

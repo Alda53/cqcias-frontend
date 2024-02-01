@@ -18,4 +18,9 @@ export class PersonaService {
     return this.httpClient.get<Persona[]>(`${this.baseURL}`);
   }
 
+  //Método registro
+  registrarPersona(persona:Persona): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`, persona)
+  }
+
 }
