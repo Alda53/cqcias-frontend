@@ -7,21 +7,22 @@
 
 <table class="table table-striped">
     <thead class="table-dark">
-        <tr>
-            <th>Nombre</th>
-            <th>Primer apellido</th>
-            <th>Segundo apellido</th>
-            <th>Telefono</th>
-            <th>Acciones</th>
-        </tr>
+      <tr>
+        <th (click)="cambiarCriterioOrden('nombre')">Nombre</th>
+        <th (click)="cambiarCriterioOrden('primer_apellido')">Primer apellido</th>
+        <th (click)="cambiarCriterioOrden('segundo_apellido')">Segundo apellido</th>
+        <th>Telefono</th>
+        <th>Acciones</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let persona of personas">
-            <th>{{persona.nombre}}</th>
-            <th>{{persona.primer_apellido}}</th>
-            <th>{{persona.segundo_apellido}}</th>
-            <th>{{persona.telefono}}</th>
-            <th>Poner acciones aqui</th>
-        </tr>
+      <tr *ngFor="let persona of aplicarClasificacion(personas)">
+        <th>{{persona.nombre}}</th>
+        <th>{{persona.primer_apellido}}</th>
+        <th>{{persona.segundo_apellido}}</th>
+        <th>{{persona.telefono}}</th>
+        <th>Poner acciones aquí</th>
+      </tr>
     </tbody>
-</table>
+  </table>
+  
